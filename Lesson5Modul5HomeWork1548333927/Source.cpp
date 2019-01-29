@@ -12,8 +12,33 @@ void Task1()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask1\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const ind = 10;
+	int a[ind][ind], l, c, sum = 0;
+
+	for (l = 0; l < ind; l++)
+	{
+		for (c = 0; c < ind; c++)
+		{
+			a[l][c] = 1 + rand() % 9;
+			printf("%d ", a[l][c]);
+		}
+		printf("\n");
+	}
+
+	printf("\nСумма элементов строк массива:\n\n");
+
+	for (l = 0; l < ind; l++)
+	{
+		for (c = 0; c < ind; c++)
+		{
+			sum += a[l][c];
+
+		}
+		printf("%3d  sum = %4d \n", l + 1, sum);
+		sum = 0;
+	}
 }
 
 
@@ -21,8 +46,50 @@ void Task2()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask2\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 4, column = 5;
+	int a[line][column], l, c, sum = 0, buffer;
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 1; c < column; c++)
+		{
+			a[l][c] = 1 + rand() % 5;
+			printf("%d  ", a[l][c]);
+		}
+		printf("\n");
+	}
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 1; c < column; c++)
+		{
+			sum += a[l][c];
+		}
+		a[l][0] = sum;
+		sum = 0;
+	}
+
+	sum = 100;
+
+	printf("\n-----------------------------\n\n");
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+
+			printf("%2d  ", a[l][c]);
+
+		if (a[l][0] < sum)
+		{
+			sum = a[l][0];
+			buffer = l;
+		}
+
+		printf("\n");
+	}
+	printf("\n\nСтрока с наименьшей суммой элементов -> № %d \n\n", buffer+1);
 }
 
 
@@ -30,8 +97,28 @@ void Task3()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask3\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 6, column = 8;
+	int a[line][column], l, c, x = 1;
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			a[l][c] = -3 + rand() % 9;
+			printf("%2d ", a[l][c]);
+		}
+		printf("\n");
+	}
+
+
+		for (l = 0; l < line; l++)
+		{
+			if (a[l][0] > 0)
+				x *= a[l][0];
+		}
+		printf("\n\nПроизведение положительных элементов первого столбца = %d \n\n", x);
 }
 
 
@@ -39,8 +126,29 @@ void Task4()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask4\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 5, column = 5;
+	int a[line][column], l, c, n = 1;
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			a[l][c] = n;
+			n++;
+			printf("%d ", a[l][c]);
+		}
+		for (l = 1; l < line; l++)
+		{
+			a[l][column] = n;
+			n++;
+			printf("%d ", a[l][c]);
+		}
+	}
+		
+
+
 }
 
 
@@ -48,8 +156,12 @@ void Task5()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask5\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 3, column = 3;
+	int a[line][column], l, c, b[line];
+
+	for()
 }
 
 
