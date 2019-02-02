@@ -233,7 +233,7 @@ void Task7()
 	SetConsoleTextAttribute(hConsole, 7);
 
 	int const line = 8, column = 5;
-	int a[line][column], l, c, b[line*column] = { 0 }, n, sumL = 0, sumC = 0;
+	int a[line][column], l, c, sumL = 0, sumC = 0;
 
 	for (l = 0; l < line; l++)
 	{
@@ -283,8 +283,33 @@ void Task10()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask10\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 3, column = 3;
+	int a[line][column], l, c, i = 0, sum = 0;
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			a[l][c] = rand() % 3 + 1;
+			printf("%3d  ", a[l][c]);
+		}
+		printf("\n");
+	}
+
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			if (c == l)
+				for (i = c + 1; i < column; i++)
+					sum += a[l][i];
+		}
+	}
+
+	printf("\nCумма элементов матрицы, лежащих выше главной диагонали = %d", sum);
 }
 
 
