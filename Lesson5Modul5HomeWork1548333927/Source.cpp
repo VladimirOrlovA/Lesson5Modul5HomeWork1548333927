@@ -161,16 +161,68 @@ void Task5()
 	int const line = 3, column = 3;
 	int a[line][column], l, c, b[line];
 
-	for()
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			a[l][c] = l;
+			printf("%d  ", a[l][c]);
+		}
+		printf("\n");
+		b[l] = l;
+	}
+
+	printf("\n-------------------------\n");
+
+	for (l = 0; l < line; l++)
+		printf("%d ", b[l]);
+
 }
+
 
 
 void Task6()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask6\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 5, column = 5;
+	int a[line][column], l, c, b[line*column] = {0}, n, count = 0;
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			a[l][c] = rand() % 10 - 5;
+			printf("%3d  ", a[l][c]);
+		}
+		printf("\n");
+	}
+
+		printf("\nЗадайте число B для сравнения и поиска =>  ");
+		scanf_s("%d", &n);
+
+		printf("\nЭлементы, превышающие по абсолютной величине заданное число B\n\n");
+
+		for (l = 0; l < line; l++)
+		{
+			for (c = 0; c < column; c++)
+			{
+				if (abs(a[l][c]) > n)
+				{
+					b[count] = a[l][c];
+					count++;
+					
+				}
+			}
+		}
+		
+		for (l = 0; l < count; l++)
+			printf("%d  ", b[l]);
+
+
+		printf("\n\nКол-во элементов, превышающих по абсолютной величине заданное число = %d", count);
 }
 
 
@@ -178,8 +230,34 @@ void Task7()
 {
 	SetConsoleTextAttribute(hConsole, 10);
 	printf("\n--------------------------------------------------------------------------\n\nTask7\n\n");
-	printf("\nВ разработке.... \n\n");
 	SetConsoleTextAttribute(hConsole, 7);
+
+	int const line = 8, column = 5;
+	int a[line][column], l, c, b[line*column] = { 0 }, n, sumL = 0, sumC = 0;
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			a[l][c] = rand() % 3 + 1;
+			printf("%3d  ", a[l][c]);
+		}
+		printf("\n");
+	}
+
+
+	for (l = 0; l < line; l++)
+	{
+		for (c = 0; c < column; c++)
+		{
+			if(c==1) sumC += a[l][c];
+			if(l==2) sumL += a[l][c];
+		}
+		
+	}
+
+	printf("\na.сумма всех элементов второго столбца массива = %d", sumC);
+	printf("\nb.сумма всех элементов 3-й строки массива = %d \n\n", sumL);
 }
 
 
